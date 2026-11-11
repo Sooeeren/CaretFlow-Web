@@ -1,5 +1,7 @@
 # CaretFlow website
 
+[![The CaretFlow website](assets/readme-hero.png)](https://caretflow.vercel.app)
+
 The landing page for [CaretFlow](https://github.com/Sooeeren/CaretFlow), with the editor itself
 running in the browser under `app/`.
 
@@ -20,6 +22,7 @@ The page is plain HTML, CSS and JavaScript with no build step. Only `app/` is bu
 | `demo/web-backend.js` | Stands in for the Tauri backend so the app runs in a browser: a folder kept in `localStorage`, file pickers and downloads instead of system dialogs, the print dialog for PDF |
 | `scripts/build-demo.mjs` | Runs the app's own Vite build into `app/` and puts `web-backend.js` in front of it. `--src <folder>` picks another checkout. The CaretFlow source is not changed |
 | `scripts/serve.mjs` | A small static server for local viewing |
+| `scripts/readme-shot.mjs` | Makes `assets/readme-hero.png`, the README image, from the live site with Chrome or Edge |
 | `assets/shots/` | The README screenshots as WebP |
 | `assets/fonts/` | Fraunces, Geist and JetBrains Mono (SIL Open Font License, see `LICENSES.txt`) |
 | `scripts/vercel-build.mjs`, `vercel.json` | The Vercel build: clones the CaretFlow repository, builds the demo, and puts the site in `dist/` |
