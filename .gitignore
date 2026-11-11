@@ -1,0 +1,5 @@
+# the web version of the app: built from the CaretFlow source by scripts/build-demo.mjs (30 MB)
+app/
+assets/app-version.json
+node_modules/
+.caretflow-src/

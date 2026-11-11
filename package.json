@@ -1,0 +1,11 @@
+{
+  "name": "caretflow-web",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "The CaretFlow website, with the editor running in the browser",
+  "scripts": {
+    "dev": "node scripts/serve.mjs",
+    "build:demo": "node scripts/build-demo.mjs"
+  }
+}
