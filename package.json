@@ -8,5 +8,8 @@
     "dev": "node scripts/serve.mjs",
     "build:demo": "node scripts/build-demo.mjs",
     "build": "node scripts/vercel-build.mjs"
+  },
+  "dependencies": {
+    "@vercel/analytics": "^2.0.1"
   }
 }
