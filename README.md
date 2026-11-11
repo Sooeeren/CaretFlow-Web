@@ -22,7 +22,7 @@ The page is plain HTML, CSS and JavaScript with no build step. Only `app/` is bu
 | `scripts/serve.mjs` | A small static server for local viewing |
 | `assets/shots/` | The README screenshots as WebP |
 | `assets/fonts/` | Fraunces, Geist and JetBrains Mono (SIL Open Font License, see `LICENSES.txt`) |
-| `.github/workflows/pages.yml` | Builds the demo from the CaretFlow repository and publishes everything to GitHub Pages |
+| `scripts/vercel-build.mjs`, `vercel.json` | The Vercel build: clones the CaretFlow repository, builds the demo, and puts the site in `dist/` |
 
 ## The web version
 
@@ -36,7 +36,7 @@ The page is plain HTML, CSS and JavaScript with no build step. Only `app/` is bu
 - Phones get the app's Android touch layout (`?touch=1` forces it, `?touch=0` turns it off).
 - `?theme=ink` starts in a theme, `?reset=1` puts the sample files back.
 
-After a new CaretFlow release, run `npm run build:demo` again (or let the Pages workflow do it).
+After a new CaretFlow release, run `npm run build:demo` again (or redeploy on Vercel).
 If the app gains new backend commands, add them to `handlers` in `demo/web-backend.js`; commands it
 does not know return `null`.
 

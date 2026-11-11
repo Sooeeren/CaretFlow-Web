@@ -3,3 +3,5 @@ app/
 assets/app-version.json
 node_modules/
 .caretflow-src/
+dist/
+.vercel/
