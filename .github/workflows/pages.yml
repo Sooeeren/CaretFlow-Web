@@ -28,6 +28,7 @@ jobs:
         with:
           repository: Sooeeren/CaretFlow
           path: .caretflow-src
+          fetch-depth: 0 # the About dialog counts lines per model from the history
       - uses: actions/setup-node@v4
         with:
           node-version: 22

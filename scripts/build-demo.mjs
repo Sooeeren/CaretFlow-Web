@@ -25,6 +25,13 @@ if (!existsSync(join(src, 'node_modules', 'vite'))) {
   process.exit(1)
 }
 
+// src/ai-stats.json (lines per model, for the About dialog) is made from the git history and not
+// committed: a fresh checkout does not have it yet
+if (!existsSync(join(src, 'src', 'ai-stats.json'))) {
+  const st = spawnSync(process.execPath, [join(src, 'scripts', 'ai-stats.mjs')], { cwd: src, stdio: 'inherit' })
+  if (st.status !== 0) process.exit(st.status ?? 1)
+}
+
 const vite = join(src, 'node_modules', 'vite', 'bin', 'vite.js')
 const r = spawnSync(process.execPath, [vite, 'build', '--base', './', '--outDir', out, '--emptyOutDir'], { cwd: src, stdio: 'inherit' })
 if (r.status !== 0) process.exit(r.status ?? 1)
