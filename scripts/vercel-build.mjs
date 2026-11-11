@@ -14,8 +14,12 @@ const run = (cmd, args, cwd = site) => {
   if (r.status !== 0) process.exit(r.status ?? 1)
 }
 
-// full history: the About dialog counts lines per model from it
-if (!existsSync(join(src, '.git'))) run('git', ['clone', 'https://github.com/Sooeeren/CaretFlow.git', src])
+// full history: the About dialog counts lines per model from it. Vercel's build cache can bring
+// back .caretflow-src/node_modules without the checkout, and git will not clone into it
+if (!existsSync(join(src, '.git'))) {
+  rmSync(src, { recursive: true, force: true })
+  run('git', ['clone', 'https://github.com/Sooeeren/CaretFlow.git', src])
+}
 run('npm', ['ci'], src)
 run(process.execPath, [join(site, 'scripts', 'build-demo.mjs'), '--src', src])
 
