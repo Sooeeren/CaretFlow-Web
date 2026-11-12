@@ -5,3 +5,6 @@ node_modules/
 .caretflow-src/
 dist/
 .vercel/
+# made from docs/PRIVACY.md and docs/TERMS.md in the CaretFlow source by scripts/build-legal.mjs
+privacy/
+terms/

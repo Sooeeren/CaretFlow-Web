@@ -618,3 +618,15 @@ html.demo-max { overflow: hidden; }
   ::view-transition-new(root) { animation: none; }
   * { transition-duration: 0.01ms !important; }
 }
+
+/* ════════════════════════════════════════ /privacy/ and /terms/ (scripts/build-legal.mjs) */
+.legal { max-width: 78ch; padding-block: clamp(32px, 6vw, 72px) var(--gap); }
+.legal h1 { font-size: clamp(2.2rem, 5vw, 3.4rem); font-weight: 560; margin-bottom: 0.3em; }
+.legal h2 { font-size: clamp(1.4rem, 2.6vw, 1.8rem); margin: 1.8em 0 0.5em; }
+.legal ul { padding-left: 1.3em; margin: 0 0 1em; }
+.legal li { margin-bottom: 0.35em; }
+.legal table { display: block; overflow-x: auto; border-collapse: collapse; margin: 0 0 1.2em; font-size: 0.94rem; }
+.legal th, .legal td { text-align: left; vertical-align: top; padding: 10px 14px 10px 0; border-bottom: 1px solid var(--line); }
+.legal th { color: var(--strong); font-weight: 600; white-space: nowrap; }
+.legal-src { margin-top: 2.5em; padding-top: 1.2em; border-top: 1px solid var(--line); color: var(--muted); font-size: 0.875rem; }
+.nav-links a[aria-current='page'] { color: var(--strong); font-weight: 600; }

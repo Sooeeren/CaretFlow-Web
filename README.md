@@ -21,6 +21,7 @@ The page is plain HTML, CSS and JavaScript with no build step. Only `app/` is bu
 | `index.html`, `css/site.css`, `js/site.js` | The landing page: the typing demo in the hero, the writing-check and raw/rendered windows, theme switch, download links |
 | `demo/web-backend.js` | Stands in for the Tauri backend so the app runs in a browser: a folder kept in `localStorage`, file pickers and downloads instead of system dialogs, the print dialog for PDF |
 | `scripts/build-demo.mjs` | Runs the app's own Vite build into `app/` and puts `web-backend.js` in front of it. `--src <folder>` picks another checkout. The CaretFlow source is not changed |
+| `scripts/build-legal.mjs` | Makes `privacy/` and `terms/` from `docs/PRIVACY.md` and `docs/TERMS.md` in the CaretFlow source (`npm run build:legal`), so those texts are edited in one place |
 | `scripts/serve.mjs` | A small static server for local viewing |
 | `scripts/readme-shot.mjs` | Makes `assets/readme-hero.png`, the README image, from the live site with Chrome or Edge |
 | `assets/shots/` | The README screenshots as WebP |
