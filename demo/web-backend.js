@@ -479,6 +479,14 @@ Folders work too. Right-click a file in the sidebar to rename it, or use the but
       if (downloads.delete(p)) download(p)
       return null
     },
+    // Word / OpenDocument / EPUB exports: raw bytes, the path (base64 of its UTF-8) in a header
+    write_binary: (bytes, opts = {}) => {
+      const path = new TextDecoder().decode(Uint8Array.from(atob(opts.headers?.path || ''), (c) => c.charCodeAt(0)))
+      const p = norm(path)
+      put(p, { bytes: new Uint8Array(bytes) })
+      if (downloads.delete(p)) download(p)
+      return null
+    },
     copy_file: ({ from, to }) => void put(norm(to), { ...need(from) }),
     make_dir: ({ path }) => {
       addDirs(norm(path) + '/x')
@@ -618,9 +626,9 @@ Folders work too. Right-click a file in the sidebar to rename it, or use the but
     },
     unregisterCallback: (id) => delete callbacks[id],
     convertFileSrc: urlFor,
-    invoke: async (cmd, args = {}) => {
+    invoke: async (cmd, args = {}, opts) => {
       const fn = handlers[cmd]
-      return fn ? fn(args || {}) : null
+      return fn ? fn(args || {}, opts) : null
     },
   }
   window.__TAURI_EVENT_PLUGIN_INTERNALS__ = { unregisterListener() {} }
